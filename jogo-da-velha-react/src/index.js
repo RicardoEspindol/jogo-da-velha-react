@@ -5,7 +5,8 @@ import './index.css';
 
 function Square(props){
   return(
-    <button className='square' onClick={
+    <button className='square text-red-700 text-9xl' 
+    onClick={
       props.onClick}>
         {props.value}
       </button>
@@ -91,7 +92,7 @@ class Game extends React.Component {
         'Go to move #' + move :
         'Go to game start';
       return (
-        <li key={move}>
+        <li key={move} className="border-2 border-white border-t-0 border-l-0 border-r-0 hover:underline list-decimal">
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
@@ -105,16 +106,22 @@ class Game extends React.Component {
     }
 
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board 
-           squares={current.squares}
-          onClick={(i) => this.handleClick(i)}
-          />
-        </div>
-        <div className="game-info">
-        <div>{status}</div>
-          <ol>{moves}</ol>
+      <div className='flex flex-row justify-center items-center h-screen w-screen'>
+        <div className="game">
+          <div className="game-board p-9 bg-slate-500">
+            <Board 
+             squares={current.squares}
+            onClick={(i) => this.handleClick(i)}
+            />
+          </div>
+          <div className="game-info p-3 font-extralight font-mono text-white w-72 h-80 bg-black">
+          <div
+          className='bg-zinc-900 text-3xl p-1 hover:underline'
+          >{status}</div> 
+            <ol
+            className='bg-zinc-900 text-sm font-light mt-5'
+            >{moves}</ol>
+          </div>
         </div>
       </div>
     );
