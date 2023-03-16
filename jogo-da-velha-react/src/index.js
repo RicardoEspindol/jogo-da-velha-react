@@ -5,7 +5,7 @@ import './index.css';
 
 function Square(props){
   return(
-    <button className='square text-red-700 text-9xl' 
+    <button className='square bg-black' 
     onClick={
       props.onClick}>
         {props.value}
@@ -18,6 +18,7 @@ class Board extends React.Component {
     return (
       <Square 
         value={this.props.squares[i]}
+        className="text-xs"
         onClick = {() => this.props.onClick(i)}
       />
     );
@@ -108,7 +109,7 @@ class Game extends React.Component {
     return (
       <div className='flex flex-row justify-center items-center h-screen w-screen'>
         <div className="game">
-          <div className="game-board p-9 bg-slate-500">
+          <div className="game-board p-9 bg-black">
             <Board 
              squares={current.squares}
             onClick={(i) => this.handleClick(i)}
